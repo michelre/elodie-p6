@@ -1,29 +1,7 @@
     async function getPhotographers() {
-        // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet, 
-        // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-        let photographers = [
-            {
-                "name": "Ma data test",
-                "id": 1,
-                "city": "Paris",
-                "country": "France",
-                "tagline": "Ceci est ma data test",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Autre data test",
-                "id": 2,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "Ceci est ma data test 2",
-                "price": 500,
-                "portrait": "account.png"
-            },
-        ]
-        // et bien retourner le tableau photographers seulement une fois récupéré
-        return ({
-            photographers: [...photographers, ...photographers, ...photographers]})
+        const response = await fetch('../data/photographers.json')
+        const data = await response.json()
+        return ({photographers: data.photographers})
     }
 
     async function displayData(photographers) {
@@ -32,7 +10,47 @@
         photographers.forEach((photographer) => {
             const photographerModel = photographerTemplate(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
+
+    
+            //element link
+            const linkElement = document.createElement("a");
+            linkElement.setAttribute("href", `photographer.html?id=${photographer.id}`);
+            linkElement.appendChild(userCardDOM);
+
+
+            //element location 
+            const locationInfo = document.createElement("div");
+            locationInfo.classList.add("location_info");
+
+            const locationElement = document.createElement("h4");
+            locationElement.textContent = `${photographer.city}, ${photographer.country}`;
+
+            locationInfo.appendChild(locationElement);
+            userCardDOM.appendChild(locationInfo);
+
+            //element tagline
+            const taglineInfo = document.createElement("div");
+            taglineInfo.classList.add("tagline_info");
+
+            const taglineElement = document.createElement("p");
+            taglineElement.textContent = photographer.tagline;
+
+            taglineInfo.appendChild(taglineElement);
+            userCardDOM.appendChild(taglineInfo);
+
+            //element price
+            const priceInfo = document.createElement("div");
+            priceInfo.classList.add("price_info");
+
+            const priceElement = document.createElement("p");
+            priceElement.textContent = photographer.price + "€/jour";
+
+            priceInfo.appendChild(priceElement);
+            userCardDOM.appendChild(priceInfo);
+
+           
+            
+            photographersSection.appendChild(linkElement);
         });
     }
 

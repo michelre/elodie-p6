@@ -19,6 +19,7 @@ h1 {
     margin-right: 100px;
 }
 
+
 .logo {
     height: 50px;
     margin-left: 100px;
@@ -26,7 +27,7 @@ h1 {
 
 .photographer_section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 70px;
     margin-top: 100px;
 }
@@ -43,8 +44,53 @@ h1 {
     color: #D3573C;
     font-size: 36px;
 }
+.photographer_section article .location_info{
+    color: #901C1C;
+    text-align: center;
+    font-family: "DM Sans";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    }
+    .photographer_section article .tagline_info{
+        color: #000;
+        text-align: center;
+        font-family: "DM Sans";
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    } 
 
+    .photographer_section article .price_info{
+        color: #757575;
+        text-align: center;
+        font-family: "DM Sans";
+        font-size: 9px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.photographer_section a{
+    text-decoration: none;
+   
+}
+
+@media screen and (min-width: 768px) {
+    .photographer_section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .photographer_section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
