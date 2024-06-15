@@ -1,4 +1,6 @@
 *{
+    padding: 0%;
+    margin: 0%;
     font-family: "DM Sans";
 }
 
@@ -14,6 +16,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    max-width: 90%;
 }
 
 .photographer-content{
@@ -25,6 +28,7 @@ order: -1;
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
+    margin: 20px 0;
     
 }
 .photographer-content h4{
@@ -65,9 +69,13 @@ order: -1;
 }
 
 .modal {
+    position :absolute;
+    top: 0;
+    left: 5%;
+    width: 88%;
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -83,10 +91,10 @@ order: -1;
 
 .modal header img {
     cursor: pointer;
+    width: 5%;
 }
 
 .modal header h2 {
-    font-size: 64px;
     font-weight: normal;
     text-align: center;
 }
@@ -100,7 +108,7 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 30px;
 }
 
 form div {
@@ -110,6 +118,23 @@ form div {
     align-items: self-start;
     margin-bottom: 26px;
 }
+.totalLikes{
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    color:black;
+    width: 200px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #DB8876; 
+    display: flex;
+    align-items: center;  
+    justify-content: space-around;
+    font-size: 20px;
+    
+}
+
 /* formulaire format mobile */
 
 #contact_modal h2{
@@ -122,7 +147,7 @@ form label{
 }
 form input {
     width: 100%;
-    height: 68px;
+    height: 50px;
     border: none;
     border-radius: 5px;
     font-size: 20px;
@@ -133,24 +158,80 @@ form textarea {
     border: none;
     border-radius: 5px;
 }
+/* filtre gallerie format mobile */
+.filters {
+    display: flex;
+    
+    margin: 30px 80px;
+}
+.filters h3{
+    font-size: 20px;
+    font-weight: 400;
+    margin: 10px 20px;
+}
+
+.dropdown select {
+    background-color: #901C1C;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    cursor: pointer;
+    font-size:18px;
+}
+
 /* partie gallery format mobile */
 .gallery {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 30px 80px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    
+}
+.gallery li{
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .gallery img, .gallery video {
-    width: 200px;
-    height: 200px;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
+}
+
+.gallery-content {
+    width: 400px;
+    color: #901C1C;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gallery-content h2{
+   font-size: 20px;
+}
+.gallery-content .likes{
+    margin-left: 50px;
+}
+
+.gallery-content .likes .likes-number{ 
+    width: 26.341px;
+    height: 26.341px;
+    font-size: 19px;
+    padding: 5px;
+}
+.gallery-content .likes i{
+    font-size: 19px;
+    margin-top: 5px;
+   
 }
 
 /* ecrans moyens */
 @media screen and (min-width: 768px) {
+    .gallery {
+     grid-template-columns: 1fr 1fr;
+    }
+
     .photograph-header {
         grid-template-columns: 1fr 1fr;
     }
@@ -168,7 +249,9 @@ form textarea {
 
 /* grands ecrans */
 @media screen and (min-width: 1024px) {
-   
+   .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
     .photograph-header {
        
         grid-template-columns: 3fr 1fr 1fr;

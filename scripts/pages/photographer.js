@@ -64,29 +64,99 @@
      divPhotographer.appendChild(h1);
      divPhotographer.appendChild(locationElement);
      divPhotographer.appendChild(taglineElement);
+//afficher le prix du photographe dans la div
+     const price = document.querySelector('.price');
+     price.innerText = `${photographer.price}€/jour`;
  }
+
  
- 
- // Fonction pour afficher les médias du photographe
- const displayGallery = (medias) => {
-     const gallery = document.querySelector('.gallery')
-     medias.forEach((media) => {
-         const m = document.createElement('li')
-         //m.innerText = media.title
-         const mediaFactory = new Media(media)
-         m.appendChild(mediaFactory.getHtml())
-         gallery.appendChild(m)
-     })
- }
- 
- 
+// Fonction pour afficher les médias du photographe
+const displayGallery = (medias) => {
+    const gallery = document.querySelector('.gallery');
+    medias.forEach((media, index) => {
+        const m = document.createElement('li');
+        
+        const mediaFactory = new Media(media);
+        m.appendChild(mediaFactory.getHtml());
+        gallery.appendChild(m);
+        
+        // Création de la div sous la galerie
+        const divContent = document.createElement('div');
+        divContent.classList.add('gallery-content');
+        m.appendChild(divContent);
+
+        // Titre de la photo
+        const title = document.createElement('h2');
+        title.classList.add('gallery-title');
+        title.innerText = media.title;
+        divContent.appendChild(title);
+
+        // Div compteur de like
+        const divLikes = document.createElement('div');
+        divLikes.classList.add('likes');
+        divContent.appendChild(divLikes);
+
+        // Span pour le nombre de likes
+        const spanLike = document.createElement('span');
+        spanLike.classList.add('likes-number');
+        spanLike.innerText = media.likes;
+        divLikes.appendChild(spanLike);
+
+        // Icon de like
+        const iconHeart = document.createElement('i');
+        iconHeart.className = 'fa-solid fa-heart';
+        iconHeart.setAttribute('data-index', index);
+        divLikes.appendChild(iconHeart);
+
+    });
+
+ // fonction mettre a jour le total des likes
+        const updateTotalLikes = () => {
+            const likes = document.querySelectorAll('.likes-number');
+            let totalLikes = 0;
+            likes.forEach((like) => {
+                totalLikes += parseInt(like.innerText, 10);
+            });
+            const totalLikesNumber = document.querySelector('.totalLikes-number');
+            totalLikesNumber.innerText =totalLikes;
+        };
+    
+        // Initialiser le compteur total des likes
+        updateTotalLikes();
+
+    // Fonction pour augmenter le nombre de likes au clic sur l'icon heart
+    const likes = document.querySelectorAll('.fa-solid.fa-heart');
+    likes.forEach((like) => {
+        like.addEventListener('click', () => {
+            const spanLike = like.previousElementSibling;
+            let currentLikes = parseInt(spanLike.innerText, 10);
+
+            if (like.classList.contains('liked')) {
+                currentLikes -= 1;
+                like.classList.remove('liked');
+            } else {
+                currentLikes += 1;
+                like.classList.add('liked');
+            }
+            spanLike.innerText = currentLikes;
+
+            updateTotalLikes();
+        });
+    });
+};
+
+
+
+
+
+
  // Initialiser les données et afficher le profil 
  const init = async () => {
      const photographer = await fetchPhotograph();
      displayProfil(photographer);
- 
+    
      const medias = await fetchMedia()
      displayGallery(medias)
  }
- 
+
  init();
