@@ -42,25 +42,26 @@
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-          <div>
-            <label>Prénom</label>
-          <input type="text">
+				<form class="contact-form">
+          <div class="first">
+              <label for="firstName">Prénom</label>
+              <input type="text" name="firstName" id="firstName" required  minlength="2" maxlength="50">
           </div>
-          <div>
-            <label>Nom</label>
-          <input type="text">
+          <div class="last">
+              <label for="lastName">Nom</label>
+              <input type="text" name="lastName" id="lastName" required  minlength="2" >
           </div>
-          <div>
-            <label>Email</label>
-          <input type="email">
+          <div class="email">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" required>
           </div>
-          <div>
-            <label>Message</label>
-          <textarea></textarea>
+          <div class="message">
+              <label for="message">Message</label>
+              <textarea name="message" id="message" required minlength="5" maxlength="500"></textarea>
           </div>
           <button class="contact_button">Envoyer</button>
-				</form>
+      </form>
+      
 			</div>
 		</div>
     <script src="scripts/templates/media.js"></script>
