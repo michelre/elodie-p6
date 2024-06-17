@@ -54,6 +54,7 @@
      //creer une div pour mettre l'image a l'interieur
      const divPicturePhotographer = document.createElement("div");
      divPicturePhotographer.classList.add("photographer-picture");
+
      // Ajouter l'image du photographe
      const img = document.createElement( 'img' );
      img.setAttribute("src", picture)
@@ -128,26 +129,26 @@ const displayGallery = (medias) => {
     const likes = document.querySelectorAll('.fa-solid.fa-heart');
     likes.forEach((like) => {
         like.addEventListener('click', () => {
+            //Selectionne l'élément précédent le like donc span
             const spanLike = like.previousElementSibling;
-            let currentLikes = parseInt(spanLike.innerText, 10);
-
+            //recupere le nombre de likes  texte et le convertie en nombre
+            let actualLikes = parseInt(spanLike.innerText, 10); 
+            //si il a la class liked ai clic on decremente et on eleve la class liked
             if (like.classList.contains('liked')) {
-                currentLikes -= 1;
+                actualLikes -= 1;
                 like.classList.remove('liked');
+                //sinon on incremente et on lui ajoute la class liked
             } else {
-                currentLikes += 1;
+                actualLikes += 1;
                 like.classList.add('liked');
             }
-            spanLike.innerText = currentLikes;
+            //Met a jour le nombre de likes
+            spanLike.innerText = actualLikes;
 
             updateTotalLikes();
         });
     });
 };
-
-
-
-
 
 
  // Initialiser les données et afficher le profil 
