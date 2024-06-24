@@ -1,11 +1,12 @@
-const displayGallery = (medias) => {
+const displayGallery = (medias, lightboxOpen) => {
     const gallery = document.querySelector('.gallery');
     gallery.innerHTML = ''
     medias.forEach((media, index) => {
         const m = document.createElement('li');
         
         const mediaFactory = new Media(media);
-        m.appendChild(mediaFactory.getHtml());
+        const mediaHtml = mediaFactory.getHtml()
+        m.appendChild(mediaHtml);
         gallery.appendChild(m);
         
         // Création de la div sous la galerie
@@ -52,6 +53,10 @@ const displayGallery = (medias) => {
             spanLike.innerText = media.likes;
             //updateTotalLikes();
             countTotalLike(medias)
+        })
+
+        mediaHtml.addEventListener('click', () => {
+            lightboxOpen(index)
         })
     });
 
