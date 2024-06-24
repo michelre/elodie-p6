@@ -19,6 +19,7 @@
           <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
         </div>
       </div>
+       <!-- filtrage -->
       <div class="filters">
       <h3>Trier par</h3>
         <div class="dropdown">
@@ -29,13 +30,28 @@
             </select>
           </div>
       </div>
+      <!-- galerie -->
       <ul class="gallery"></ul>
+      <!-- total like et prix -->
       <div class="totalLikes">
        <div class="totalLikes-number"></div>
        <i class="fa-solid fa-heart"></i>
        <div class="price"></div>
       </div>
     </main>
+    <!-- lightbox -->
+
+    <div id="lightbox" class="lightbox">
+      <div class="lightbox-content">
+          <button class="lightbox-icon" id="prev-icon"><i class="fa-solid fa-angle-left fa-4x"></i></button>
+          <img id="lightbox-img" class="lightbox-image">
+          <button class="lightbox-icon" id="next-icon"><i class="fa-solid fa-angle-right fa-4x"></i></button>
+          <button class="close"><i class="fa-solid fa-xmark fa-4x"></i></button>
+      </div>
+  </div>
+
+
+     <!-- modal formulaire  -->
     <div id="contact_modal">
 			<div class="modal">
 				<header>
