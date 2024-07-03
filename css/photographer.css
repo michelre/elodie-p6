@@ -136,6 +136,7 @@ form div {
     
 }
 .lightbox {
+
     display: none;
     position: fixed;
     z-index: 1;
@@ -147,12 +148,52 @@ form div {
     background-color: #FFF;
     text-align: center;
 }
+
+.lightbox.open {
+    display: block;
+}
+
 .lightbox-content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
-    margin-top: 10%;
+    width: 100%;
+    max-width: 100%;
+    margin: 10% 0;
+    display: flex;
+}
+.lightbox-content button{
+    margin: 0 50px;
+}
+
+.lightbox-content li img,video{
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox-container {
+    overflow: hidden;
+}
+
+.lightbox-gallery {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;    
+    transform: translateX(-900px);
+    transition: transform .250s linear;
+}
+
+.lightbox-gallery .slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 500px; 
+    height: 900px;
+}
+
+.slide img {
+    object-fit: cover;
 }
 
 #prev-icon {
@@ -246,6 +287,8 @@ form textarea {
     width: 400px;
     height: 400px;
     object-fit: cover;
+    display: block;
+    border: 1px solid  black;
 }
 
 .gallery-content {

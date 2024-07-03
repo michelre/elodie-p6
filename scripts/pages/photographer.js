@@ -3,6 +3,7 @@
 
  const parsedUrl = new URL(window.location.href);
  const id = parseInt(parsedUrl.searchParams.get("id"));
+ const lightbox = new Lightbox()
  
  // Fonction pour récupérer les médias associés au photographe
  const fetchMedia = async () => {
@@ -51,7 +52,10 @@
             return 0
         })
     }
-    displayGallery(newMedias)
+    displayGallery(newMedias, (index) => {
+        lightbox.open(index)
+    })
+    lightbox.display(newMedias)
  }
 
 
@@ -71,7 +75,7 @@ const initSortEvent = (medias) => {
      displayProfil(photographer);
     
      const medias = await fetchMedia()
-     displayGallery(medias)
+     //displayGallery(medias)
 
      countTotalLike(medias)
 

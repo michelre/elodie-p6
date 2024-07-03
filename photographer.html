@@ -44,10 +44,12 @@
     <div id="lightbox" class="lightbox">
       <div class="lightbox-content">
           <button class="lightbox-icon" id="prev-icon"><i class="fa-solid fa-angle-left fa-4x"></i></button>
-          <img id="lightbox-img" class="lightbox-image">
+          <div class="lightbox-container">
+            <ul class="lightbox-gallery"></ul>
+          </div>          
           <button class="lightbox-icon" id="next-icon"><i class="fa-solid fa-angle-right fa-4x"></i></button>
-          <button class="close"><i class="fa-solid fa-xmark fa-4x"></i></button>
-      </div>
+          </div>
+        <button class="close"><i class="fa-solid fa-xmark fa-4x"></i></button>
   </div>
 
 
@@ -81,6 +83,7 @@
 			</div>
 		</div>
     <script src="scripts/templates/gallery.js"></script>
+    <script src="scripts/templates/lightbox.js"></script>
     <script src="scripts/templates/photographer.js"></script>
     <script src="scripts/templates/media.js"></script>
     <script src="scripts/utils/utils.js"></script>
