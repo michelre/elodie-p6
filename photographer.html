@@ -22,16 +22,18 @@
        <!-- filtrage -->
       <div class="filters">
       <h3>Trier par</h3>
-        <div class="dropdown">
+        <button class="dropdown">
           <select class="sort">
               <option id="popular" value="popularity">Popularité</option>
               <option id="date" value="date">Date</option>
               <option id="title" value="title">Titre</option>
-            </select>
-          </div>
+          </select>
+        </button>
       </div>
       <!-- galerie -->
-      <ul class="gallery"></ul>
+      <div class="gallery-container">
+        <ul class="gallery"></ul>
+      </div>
       <!-- total like et prix -->
       <div class="totalLikes">
        <div class="totalLikes-number"></div>
@@ -63,21 +65,23 @@
 				<form class="contact-form">
           <div class="first">
               <label for="firstName">Prénom</label>
-              <input type="text" name="firstName" id="firstName" required  minlength="2" maxlength="50">
+              <input type="text" name="firstName" id="firstName" 
           </div>
           <div class="last">
               <label for="lastName">Nom</label>
-              <input type="text" name="lastName" id="lastName" required  minlength="2" >
+              <input type="text" name="lastName" id="lastName"  >
           </div>
           <div class="email">
               <label for="email">Email</label>
-              <input type="email" name="email" id="email" required>
+              <input type="email" name="email" id="email">
           </div>
           <div class="message">
               <label for="message">Message</label>
-              <textarea name="message" id="message" required minlength="5" maxlength="500"></textarea>
+              <textarea name="message" id="message" ></textarea>
           </div>
-          <button class="contact_button">Envoyer</button>
+          <div>
+            <button type="submit" class="contact_button">Envoyer</button>
+          </div>
       </form>
       
 			</div>
@@ -86,7 +90,7 @@
     <script src="scripts/templates/lightbox.js"></script>
     <script src="scripts/templates/photographer.js"></script>
     <script src="scripts/templates/media.js"></script>
-    <script src="scripts/utils/utils.js"></script>
+    <script src="scripts/utils/totalLikes.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
