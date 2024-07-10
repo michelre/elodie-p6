@@ -1,3 +1,6 @@
+/*global Media */
+/*exported Lightbox*/
+
 class Lightbox {
 
     constructor() {
@@ -28,6 +31,12 @@ class Lightbox {
             if(e.key === 'Escape'){
                 this.close()
             }
+            if(e.key === 'ArrowRight'){
+                this.next()
+            }
+            if(e.key === 'ArrowLeft'){
+                this.previous()
+            }
         })
     }
 
@@ -35,7 +44,7 @@ class Lightbox {
         this.index = index
         this.lightbox.classList.add('open')
         this.changeSlide()
-        this.nextButton.focus()
+        this.closeButton.focus()
     }
 
     close() {        
@@ -71,11 +80,11 @@ class Lightbox {
     display(medias) {
         const lightboxGallery = document.querySelector('.lightbox-gallery');
         lightboxGallery.innerHTML = ''
-        medias.forEach((media, index) => {
+        medias.forEach((media) => {
             const m = document.createElement('li');
             m.classList.add('slide')
 
-            const mediaFactory = new Media(media);
+            const mediaFactory = new Media(media, {controls: true});
             m.appendChild(mediaFactory.getHtml());
             lightboxGallery.appendChild(m);
 

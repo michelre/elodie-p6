@@ -1,17 +1,19 @@
+/*global Lightbox,displayGallery,displayProfil,countTotalLike,sendContactForm,closeModal*/
+
 const parsedUrl = new URL(window.location.href);
 const id = parseInt(parsedUrl.searchParams.get("id"));
 const lightbox = new Lightbox();
 
 // Fonction pour récupérer les médias associés au photographe
 const fetchMedia = async () => {
-    const response = await fetch('../data/photographers.json');
+    const response = await fetch('data/photographers.json');
     const data = await response.json();
     return data.media.filter(media => media.photographerId === id);
 };
 
 // Fonction pour récupérer les données d'un photographe à partir de son identifiant
 const fetchPhotograph = async () => {
-    const response = await fetch('../data/photographers.json');
+    const response = await fetch('data/photographers.json');
     const data = await response.json();
     const photographer = data.photographers.find(photographer => photographer.id === id);
     console.log(photographer);

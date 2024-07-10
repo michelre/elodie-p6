@@ -1,3 +1,5 @@
+/*exported photographerTemplate,displayProfil*/
+
 function photographerTemplate(data) {
     const { name, portrait } = data;
 
