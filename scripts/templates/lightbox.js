@@ -13,6 +13,7 @@ class Lightbox {
     initEvents(){
         this.closeButton.addEventListener('click', () => {
             this.close()
+
         })
 
         this.nextButton.addEventListener('click', () => {
@@ -34,6 +35,7 @@ class Lightbox {
         this.index = index
         this.lightbox.classList.add('open')
         this.changeSlide()
+        this.nextButton.focus()
     }
 
     close() {        

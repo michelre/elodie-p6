@@ -24,7 +24,7 @@ class MediaImage {
     getHtml(){
         const img = document.createElement('img')
         img.setAttribute('alt', this.media.title)
-        img.setAttribute('src', `assets/media/${this.media.photographerId}/${this.media.image}`)
+        //img.setAttribute('src', `assets/media/${this.media.photographerId}/${this.media.image}`)
         return img
     }
 }
@@ -38,7 +38,7 @@ class MediaVideo {
     getHtml(){
         const video = document.createElement('video')
         const source = document.createElement('source')
-        source.setAttribute('src', `assets/media/${this.media.photographerId}/${this.media.video}`)
+        //source.setAttribute('src', `assets/media/${this.media.photographerId}/${this.media.video}`)
         video.appendChild(source)     
         return video
     }

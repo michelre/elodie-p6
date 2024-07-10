@@ -21,14 +21,12 @@
       </div>
        <!-- filtrage -->
       <div class="filters">
-      <h3>Trier par</h3>
-        <button class="dropdown">
-          <select class="sort">
-              <option id="popular" value="popularity">Popularité</option>
-              <option id="date" value="date">Date</option>
-              <option id="title" value="title">Titre</option>
-          </select>
-        </button>
+      <h3>Trier par</h3>        
+        <select class="sort">
+            <option id="popular" value="popularity">Popularité</option>
+            <option id="date" value="date">Date</option>
+            <option id="title" value="title">Titre</option>
+        </select>        
       </div>
       <!-- galerie -->
       <div class="gallery-container">
@@ -44,6 +42,7 @@
     <!-- lightbox -->
 
     <div id="lightbox" class="lightbox">
+      <button class="close"><i class="fa-solid fa-xmark fa-4x"></i></button>
       <div class="lightbox-content">
           <button class="lightbox-icon" id="prev-icon"><i class="fa-solid fa-angle-left fa-4x"></i></button>
           <div class="lightbox-container">
@@ -51,7 +50,6 @@
           </div>          
           <button class="lightbox-icon" id="next-icon"><i class="fa-solid fa-angle-right fa-4x"></i></button>
           </div>
-        <button class="close"><i class="fa-solid fa-xmark fa-4x"></i></button>
   </div>
 
 
@@ -59,13 +57,19 @@
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <div class="header-form">
+<h2>Contactez-moi</h2>
+          </div>
+          
+          <button class="close-modal">
+            <img src="assets/icons/close.svg" />
+          </button> 
+
         </header>
 				<form class="contact-form">
           <div class="first">
               <label for="firstName">Prénom</label>
-              <input type="text" name="firstName" id="firstName" 
+              <input type="text" name="firstName" id="firstName" >
           </div>
           <div class="last">
               <label for="lastName">Nom</label>

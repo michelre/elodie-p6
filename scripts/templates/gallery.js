@@ -3,10 +3,14 @@ const displayGallery = (medias, lightboxOpen) => {
     gallery.innerHTML = ''
     medias.forEach((media, index) => {
         const m = document.createElement('li');
+        const mediaLink = document.createElement('a')
+        mediaLink.href = '#'
+
+        m.appendChild(mediaLink)
         
         const mediaFactory = new Media(media);
         const mediaHtml = mediaFactory.getHtml()
-        m.appendChild(mediaHtml);
+        mediaLink.appendChild(mediaHtml);
         gallery.appendChild(m);
         
         // Création de la div sous la galerie
@@ -33,12 +37,15 @@ const displayGallery = (medias, lightboxOpen) => {
 
         // Icon de like
         const iconHeart = document.createElement('i');
+        const iconButton = document.createElement('button')
+        iconButton.setAttribute('aria-label', 'Like de la photo')
+        iconButton.appendChild(iconHeart)
         iconHeart.className = 'fa-regular fa-heart';
         iconHeart.setAttribute('data-index', index);
-        divLikes.appendChild(iconHeart);
+        divLikes.appendChild(iconButton);
 
 
-        iconHeart.addEventListener('click', () => {            
+        iconButton.addEventListener('click', () => {            
             //si il a la class liked ai clic on decremente et on eleve la class liked
             if (iconHeart.classList.contains('liked')) {
                 media.likes -= 1;
@@ -55,7 +62,7 @@ const displayGallery = (medias, lightboxOpen) => {
             countTotalLike(medias)
         })
 
-        mediaHtml.addEventListener('click', () => {
+        mediaLink.addEventListener('click', () => {
             lightboxOpen(index)
         })
     });
